@@ -1,0 +1,256 @@
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --cor-de-fundo: #000000;
+    --fonte-principal: 'Inter';
+    --botao-zul-efeito: #6fb0f2;
+
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.principal {
+
+    background-image: url("img/Background.png");
+    background-repeat: no-repeat;  
+    background-size: contain;
+    align-items: center; /*como o grid esta alinhado em colunas, ele alinhou o conteudo desta class no centro*/
+    text-align: center; /*ele alinhou o conteudo desta section no centro*/
+}
+
+.container {
+    height: 100vh;  /*aqui define a altura(height) da visualização do background.png*/
+    display: grid; /*o grid É usado para separar elementos, elementos esse que estão dentro da div no html*/
+    grid-template-columns: 50% 50%; /*aqui esta separando a tela em blocos de coluna para que grid desse container ocupe metade*/
+}
+
+.container__botao {
+    background:  #f500ac;
+    border-radius: 5px;
+    padding: 1em;  /*1em é uma medida relativa ao tamanho da fonte, ou seja o que esta em volta da fonte se  */
+    color: #ffffff;
+    font-size:x-large;  
+    display: block;
+    text-decoration: none; /*tira o sublinhado do titulo*/
+    margin-bottom: 1em; /*espaçamento entre os botões*/
+}   
+
+.container__botao:hover {
+    font-size:xx-large;
+    color: #000000;
+
+    
+}
+
+.botao_secundario {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px  var(--branco-principal); 
+
+}
+
+.botao_secundario:hover {
+
+    background-color: #1900f5;
+    color: #ffffff;
+    border: 2px  var(--branco-principal); 
+}
+
+.container__aviso {
+    
+    padding: 4em;
+    font-size: 17px;
+    color: var(--cinza-secundario);
+}
+
+.container__titulo {
+    font-size: 28px;
+}
+
+.container__imagem {
+
+    margin: 1em 0 2em 0; /*funciona como um relogio, sentido horario, aqui estou espaçando a imagem dos botões*/
+    width: 80%;
+}
+
+.container__caixa {
+
+    margin: 0 6em; /*criou um espaçamento ao redor dos elementos*/
+}
+
+.secundario__imagem {
+    width: 80%;
+}  
+
+.secundario {
+    align-items: center;
+    margin: 0 10em;
+}
+
+.descricao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--branco-principal);
+    margin-bottom: 0.1em;
+}
+
+.descricao__texto { 
+    color: var(--cinza-secundario);
+}
+
+.secundario__botao {
+    background-color: var(--branco-principal);
+    color: #000000;
+    display:inline-block; /*https://medium.com/collabcode/pare-de-chutar-e-aprenda-como-funciona-o-display-inline-block-4e6cba2f19d4*/
+    margin-top: 1em;
+}
+
+.secundario__botao:hover {
+    color: #ffffff;
+    font-size:xx-large;
+    font-style: unset;
+    background: #e100f5;
+    box-shadow: 0 0 5px #f500ac,
+    0 0 25px #f500ac,
+    0 0 50px #f500ac,
+    0 0 200px #f500ac;
+    -webkit-box-reflect:#f500ac;
+}
+
+.container__descricao {
+
+    padding: 2em;
+}
+
+.dispositivos__lista {
+
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 5em 0;
+}
+
+.dispositivos {
+
+    text-align: center;
+}
+
+.dispositivos__titulo {
+
+    font-size: 48px;
+    color: var(--branco-principal);
+ 
+}
+
+.lista__item {
+
+    font-size: 32px;
+    color: var(--branco-principal);
+}
+
+.rodape__logo {
+
+    margin: 2em 0;
+
+}
+
+.rodape {
+    background-color: transparent;
+    text-align: center;
+        
+}
+
+.rodape__lista {
+
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 16px;
+}
+
+
+.lista__link a{
+
+    text-decoration: none;
+    color:var(--branco-principal);
+
+}
+
+
+.rodape__texto { 
+
+    font-size: 14px;
+    color: var(--cinza-secundario);    
+    padding: 1.5em 1.5em;
+}
+
+.lista__link a:hover {
+    color: #aaa9a9;
+    font-size: medium;
+    background: none;
+    box-shadow: none;
+    -webkit-box-reflect:unset;
+}
+
+
+
+@media (max-width: 768px) {
+
+
+.container{
+    display: block;
+    background-image:center;
+}
+
+.container__titulo{
+    padding: 5% 40% 0% 0%;
+    text-align: left;
+    font-size: 22px;
+}
+
+.principal {
+    display: block;
+    align-items: center;
+}
+
+.container__imagem{
+    padding-top: 4em;
+    width: 80vw; 
+}
+
+.container__caixa{
+    padding-top: 0;
+    margin: 2em 2em;
+}
+
+.secundario{
+    margin: 0;
+    text-align: center;
+}
+
+.secundario__imagem{
+    width: 80vw;
+}
+
+.dispositivos__lista{
+    display: block;
+}
+
+.rodape__lista{
+    display: block;
+}
+}
