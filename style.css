@@ -1,260 +1,250 @@
 :root {
-    --branco-principal: #FFFFFF;
-    --cinza-secundario: #C0C0C0;
-    --botao-azul: #167BF7;
-    --cor-de-fundo: #000000;
-    --fonte-principal: 'Inter';
-    --botao-zul-efeito: #6fb0f2;
-
+    /* Definição de variáveis CSS para cores e fontes */
+    --branco-principal: #FFFFFF; /* Cor branca principal */
+    --cinza-secundario: #C0C0C0; /* Cor cinza secundário */
+    --botao-azul: #167BF7; /* Cor azul para botões */
+    --cor-de-fundo: #000000; /* Cor de fundo da página */
+    --fonte-principal: 'Inter'; /* Fonte principal utilizada */
+    --botao-zul-efeito: #6fb0f2; /* Cor azul com efeito para botões */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Define rolagem suave para a página */
 }
 
 body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco-principal);
-    font-family: var(--fonte-principal);
-    font-size: 16px;
-    font-weight: 400;
-
+    background-color: var(--cor-de-fundo); /* Aplica a cor de fundo definida */
+    color: var(--branco-principal); /* Define a cor do texto */
+    font-family: var(--fonte-principal); /* Define a fonte principal */
+    font-size: 16px; /* Tamanho da fonte padrão */
+    font-weight: 400; /* Peso da fonte padrão */
 }
 
-
-*{
-    margin: 0;
-    padding: 0;
+* {
+    margin: 0; /* Remove margens padrão de todos os elementos */
+    padding: 0; /* Remove preenchimento padrão de todos os elementos */
 }
 
 .principal {
-
-    background-image: url("img/Background.png");
-    background-repeat: no-repeat;  
-    background-size: contain;
-    align-items: center; /*como o grid esta alinhado em colunas, ele alinhou o conteudo desta class no centro*/
-    text-align: center; /*ele alinhou o conteudo desta section no centro*/
+    background-image: url("img/Background.png"); /* Define a imagem de fundo */
+    background-repeat: no-repeat; /* Evita repetição da imagem de fundo */
+    background-size: contain; /* Ajusta a imagem de fundo para caber na área */
+    align-items: center; /* Alinha o conteúdo no centro da grid */
+    text-align: center; /* Alinha o texto ao centro */
 }
 
 .container {
-    height: 100vh;  /*aqui define a altura(height) da visualização do background.png*/
-    display: grid; /*o grid É usado para separar elementos, elementos esse que estão dentro da div no html*/
-    grid-template-columns: 50% 50%; /*aqui esta separando a tela em blocos de coluna para que grid desse container ocupe metade*/
+    height: 100vh; /* Define a altura da visualização do container */
+    display: grid; /* Usa grid layout para organizar elementos */
+    grid-template-columns: 50% 50%; /* Cria duas colunas de igual largura */
 }
 
 .container__botao {
-    background:  #f500ac;
-    border-radius: 5px;
-    padding: 1em;  /*1em é uma medida relativa ao tamanho da fonte, ou seja o que esta em volta da fonte se  */
-    color: #ffffff;
-    font-size:x-large;  
-    display: block;
-    text-decoration: none; /*tira o sublinhado do titulo*/
-    margin-bottom: 1em; /*espaçamento entre os botões*/
+    background: #f500ac; /* Cor de fundo do botão */
+    border-radius: 5px; /* Bordas arredondadas do botão */
+    padding: 1em; /* Preenchimento interno do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    font-size: x-large; /* Tamanho da fonte do botão */
+    display: block; /* Exibe o botão como um bloco */
+    text-decoration: none; /* Remove sublinhado do texto do botão */
+    margin-bottom: 1em; /* Espaçamento entre os botões */
 }   
 
 .container__botao:hover {
-    font-size:xx-large;
-    color: #000000;
-
-    
+    font-size: xx-large; /* Aumenta o tamanho da fonte ao passar o mouse */
+    color: #000000; /* Altera a cor do texto ao passar o mouse */
 }
 
 .botao_secundario {
-    background-color: #ffffff;
-    color: #000000;
-    border: 2px  var(--branco-principal); 
-
+    background-color: #ffffff; /* Cor de fundo do botão secundário */
+    color: #000000; /* Cor do texto do botão secundário */
+    border: 2px solid var(--branco-principal); /* Define a borda do botão */
 }
 
 .botao_secundario:hover {
-
-    background-color: #1900f5;
-    color: #ffffff;
-    border: 2px  var(--branco-principal); 
+    background-color: #1900f5; /* Altera a cor de fundo ao passar o mouse */
+    color: #ffffff; /* Altera a cor do texto ao passar o mouse */
+    border: 2px solid var(--branco-principal); /* Mantém a borda ao passar o mouse */
 }
 
 .container__aviso {
-    
-    padding: 4em;
-    font-size: 17px;
-    color: var(--cinza-secundario);
+    padding: 4em; /* Preenchimento interno do aviso */
+    font-size: 17px; /* Tamanho da fonte do aviso */
+    color: var(--cinza-secundario); /* Cor do texto do aviso */
 }
 
+
 .container__titulo {
-    font-size: 28px;
+    font-size: 28px; /* Define o tamanho da fonte do título do container */
 }
 
 .container__imagem {
-
-    margin: 1em 0 2em 0; /*funciona como um relogio, sentido horario, aqui estou espaçando a imagem dos botões*/
-    width: 80%;
+    margin: 1em 0 2em 0; /* Define espaçamento em torno da imagem (cima, lateral, baixo) */
+    width: 80%; /* Define a largura da imagem como 80% do seu container pai */
 }
 
 .container__caixa {
-
-    margin: 0 6em; /*criou um espaçamento ao redor dos elementos*/
+    margin: 0 6em; /* Cria espaçamento lateral ao redor dos elementos dentro da caixa */
 }
 
 .secundario__imagem {
-    width: 80%;
+    width: 80%; /* Define a largura da imagem secundária como 80% do seu container pai */
 }  
 
 .secundario {
-    align-items: center;
-    margin: 0 10em;
+    align-items: center; /* Alinha os itens do container secundário ao centro */
+    margin: 0 10em; /* Cria espaçamento lateral no container secundário */
 }
 
 .descricao__titulo {
-    font-weight: 700;
-    font-size: 48px;
-    color: var(--branco-principal);
-    margin-bottom: 0.1em;
+    font-weight: 700; /* Define o peso da fonte como negrito */
+    font-size: 48px; /* Define o tamanho da fonte do título da descrição */
+    color: var(--branco-principal); /* Define a cor do título usando a variável branca */
+    margin-bottom: 0.1em; /* Define uma margem inferior para espaçamento */
 }
 
 .descricao__texto { 
-    color: var(--cinza-secundario);
+    color: var(--cinza-secundario); /* Define a cor do texto da descrição usando a variável cinza */
 }
 
 .secundario__botao {
-    background-color: var(--branco-principal);
-    color: #000000;
-    display:inline-block; /*https://medium.com/collabcode/pare-de-chutar-e-aprenda-como-funciona-o-display-inline-block-4e6cba2f19d4*/
-    margin-top: 1em;
+    background-color: var(--branco-principal); /* Define a cor de fundo do botão secundário */
+    color: #000000; /* Define a cor do texto do botão como preto */
+    display: inline-block; /* Exibe o botão como um bloco inline */
+    margin-top: 1em; /* Define uma margem superior para espaçamento */
 }
 
 .secundario__botao:hover {
-    color: #ffffff;
-    font-size:xx-large;
-    font-style: unset;
-    background: #e100f5;
-    box-shadow: 0 0 5px #f500ac,
-    0 0 25px #f500ac,
-    0 0 50px #f500ac,
-    0 0 200px #f500ac;
-    -webkit-box-reflect:#f500ac;
+    color: #ffffff; /* Altera a cor do texto ao passar o mouse */
+    font-size: xx-large; /* Aumenta o tamanho da fonte ao passar o mouse */
+    font-style: unset; /* Remove qualquer estilo de fonte aplicado */
+    background: #e100f5; /* Altera a cor de fundo ao passar o mouse */
+    box-shadow: 0 0 5px #f500ac, /* Adiciona sombra ao botão */
+                0 0 25px #f500ac,
+                0 0 50px #f500ac,
+                0 0 200px #f500ac; 
+    -webkit-box-reflect: #f500ac; /* Adiciona reflexão ao botão */
 }
 
 .container__descricao {
-
-    padding: 2em;
+    padding: 2em; /* Adiciona preenchimento interno ao container de descrição */
 }
 
 .dispositivos__lista {
-
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    margin: 5em 0;
+    display: flex; /* Usa o layout flexível para a lista de dispositivos */
+    justify-content: center; /* Centraliza os itens na lista */
+    list-style-type: none; /* Remove os marcadores de lista */
+    margin: 5em 0; /* Define margens superior e inferior para a lista */
 }
 
 .dispositivos {
-
-    text-align: center;
+    text-align: center; /* Centraliza o texto dentro do container de dispositivos */
 }
 
 .dispositivos__titulo {
-
-    font-size: 48px;
-    color: var(--branco-principal);
- 
+    font-size: 48px; /* Define o tamanho da fonte do título de dispositivos */
+    color: var(--branco-principal); /* Define a cor do título usando a variável branca */
 }
 
 .lista__item {
-
+    /* Define o tamanho da fonte dos itens da lista e aplica a cor principal branca */
     font-size: 32px;
     color: var(--branco-principal);
 }
 
 .rodape__logo {
-
+    /* Adiciona espaçamento vertical ao logo no rodapé */
     margin: 2em 0;
-
 }
 
 .rodape {
+    /* Define o fundo do rodapé como transparente e alinha seu conteúdo ao centro */
     background-color: transparent;
     text-align: center;
-        
 }
 
 .rodape__lista {
-
+    /* Estiliza a lista do rodapé com layout em linha, centralização e espaçamento entre itens */
     display: flex;
     justify-content: center;
     list-style-type: none;
     gap: 16px;
 }
 
-
-.lista__link a{
-
+.lista__link a {
+    /* Remove o sublinhado dos links e aplica a cor branca principal */
     text-decoration: none;
-    color:var(--branco-principal);
-
+    color: var(--branco-principal);
 }
 
-
-.rodape__texto { 
-
+.rodape__texto {
+    /* Define o tamanho da fonte, a cor cinza e o espaçamento interno para o texto do rodapé */
     font-size: 14px;
-    color: var(--cinza-secundario);    
+    color: var(--cinza-secundario);
     padding: 1.5em 1.5em;
 }
 
 .lista__link a:hover {
+    /* Estiliza o hover dos links com uma cor mais clara, tamanho da fonte ajustado e sem sombra */
     color: #aaa9a9;
     font-size: medium;
     background: none;
     box-shadow: none;
-    -webkit-box-reflect:unset;
+    -webkit-box-reflect: unset;
 }
-
-
 
 @media (max-width: 768px) {
+    /* Estilizações específicas para dispositivos menores */
 
+    .container {
+        /* Altera o layout do container para bloco e centraliza o background */
+        display: block;
+        background-image: center;
+    }
 
-.container{
-    display: block;
-    background-image:center;
-}
+    .container__titulo {
+        /* Adiciona espaçamento ao título do container e alinha o texto à esquerda */
+        padding: 5% 40% 0% 0%;
+        text-align: left;
+        font-size: 22px;
+    }
 
-.container__titulo{
-    padding: 5% 40% 0% 0%;
-    text-align: left;
-    font-size: 22px;
-}
+    .principal {
+        /* Garante que os elementos principais sejam exibidos como bloco e centralizados */
+        display: block;
+        align-items: center;
+    }
 
-.principal {
-    display: block;
-    align-items: center;
-}
+    .container__imagem {
+        /* Define um espaçamento superior e ajusta a largura da imagem do container */
+        padding-top: 4em;
+        width: 80vw;
+    }
 
-.container__imagem{
-    padding-top: 4em;
-    width: 80vw; 
-}
+    .container__caixa {
+        /* Remove o espaçamento superior e ajusta a margem da caixa do container */
+        padding-top: 0;
+        margin: 2em 2em;
+    }
 
-.container__caixa{
-    padding-top: 0;
-    margin: 2em 2em;
-}
+    .secundario {
+        /* Remove margens e alinha o texto da seção secundária ao centro */
+        margin: 0;
+        text-align: center;
+    }
 
-.secundario{
-    margin: 0;
-    text-align: center;
-}
+    .secundario__imagem {
+        /* Ajusta a largura da imagem da seção secundária */
+        width: 80vw;
+    }
 
-.secundario__imagem{
-    width: 80vw;
-}
+    .dispositivos__lista {
+        /* Exibe a lista de dispositivos em bloco */
+        display: block;
+    }
 
-.dispositivos__lista{
-    display: block;
-}
-
-.rodape__lista{
-    display: block;
-}
+    .rodape__lista {
+        /* Altera o layout da lista do rodapé para bloco em telas menores */
+        display: block;
+    }
 }
