@@ -1,149 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="img/Logo.ico" type="image/x-icon">
+    <!-- Importa a biblioteca Lenis para implementar rolagem suave -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+
+<script> /*SCROOL SUAVE EM JAVASCRIPT*/
+    // Configura o Lenis com opções para rolagem suave
+    const lenis = new Lenis({
+      duration: 1.2, // Duração da animação de rolagem
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Função de easing para suavizar a rolagem
+      orientation: 'vertical', // Define a direção da rolagem
+      gestureOrientation: 'vertical', // Define a orientação dos gestos de rolagem
+      smoothWheel: true, // Ativa rolagem suave com o mouse
+      wheelMultiplier: 1, // Multiplicador de velocidade para a roda do mouse
+      smoothTouch: false, // Desativa rolagem suave para toques
+      touchMultiplier: 2, // Multiplicador de velocidade para toques
+      infinite: false, // Desativa rolagem infinita
+    });
+
+    // Captura o evento de rolagem e exibe no console
+    lenis.on('scroll', (e) => {
+      console.log(e); // Loga o evento de rolagem
+    });
+
+    // Função para atualizar a rolagem em cada quadro
+    function raf(time) {
+      lenis.raf(time); // Atualiza a rolagem com o tempo atual
+      requestAnimationFrame(raf); // Solicita o próximo quadro de animação
+    }
+
+    requestAnimationFrame(raf); // Inicia o loop de animação
+</script>
+
 <main class="apresentacao">
-    <title>Alura Plus</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Alura Plus</title> <!-- Título da página -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidade com Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configurações de viewport para dispositivos móveis -->
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!-- Importa fonte Inter do Google Fonts -->
 
     <style>
-
-
+        /* Reset de estilos globais */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimento padrão */
+            box-sizing: border-box; /* Define box-sizing para border-box */
         }
 
         body {
-            
-            height: 100vh;
-            font-weight: bold;
+            height: 100vh; /* Define altura do corpo para 100% da viewport */
+            font-weight: bold; /* Define texto em negrito */
         }
 
+        /* Estilos para links */
         a {
-            position: relative;
-            display: inline-block;
-            padding: 25px 30px;
-            margin: 40px 0;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.5s;
-            letter-spacing: 4px;
-            overflow: hidden;
-            margin-right: 50px;
-            
+            position: relative; /* Define posição relativa para o link */
+            display: inline-block; /* Exibe como um bloco inline */
+            padding: 25px 30px; /* Adiciona preenchimento ao link */
+            margin: 40px 0; /* Margens verticais para espaçamento */
+            text-decoration: none; /* Remove sublinhado do texto */
+            text-transform: uppercase; /* Transforma texto para letras maiúsculas */
+            transition: 0.5s; /* Transição suave ao passar o mouse */
+            letter-spacing: 4px; /* Aumenta o espaçamento entre letras */
+            overflow: hidden; /* Oculta qualquer conteúdo que transborde */
+            margin-right: 50px; /* Margem à direita */
         }
 
+        /* Efeitos ao passar o mouse sobre o link */
         a:hover {
-        
-            background: #ebebeb;
-            color: #050801;
-            box-shadow: 0 0 5px #ebebeb,
+            background: #ebebeb; /* Altera a cor de fundo ao passar o mouse */
+            color: #050801; /* Altera a cor do texto ao passar o mouse */
+            box-shadow: 0 0 5px #ebebeb, /* Adiciona sombra ao redor do link */
                 0 0 25px #ebebeb,
                 0 0 50px #ebebeb,
                 0 0 200px #ebebeb;
-            -webkit-box-reflect: below 0.1px linear-gradient(transparent, #0005);
+            -webkit-box-reflect: below 0.1px linear-gradient(transparent, #0005); /* Reflexão para efeito visual */
         }
 
+        /* Aplica um filtro de matiz ao primeiro link */
         a:nth-child(1) {
-            filter: hue-rotate(270deg);
+            filter: hue-rotate(270deg); /* Rotaciona a matiz em 270 graus */
         }
 
+        /* Aplica um filtro de matiz ao segundo link */
         a:nth-child(2) {
-            filter: hue-rotate(110deg);
+            filter: hue-rotate(110deg); /* Rotaciona a matiz em 110 graus */
         }
 
+        /* Estilos para os spans dentro dos links */
         a span {
-            position: absolute;
-            display: block;
+            position: absolute; /* Define posição absoluta para controle de layout */
+            display: block; /* Exibe como um bloco */
         }
 
+        /* Estilo para o primeiro span que cria uma animação na borda superior */
         a span:nth-child(1) {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffffff);
-            animation: animate1 1s linear infinite;
+            top: 0; /* Posiciona na parte superior */
+            left: 0; /* Posiciona à esquerda */
+            width: 100%; /* Largura total do link */
+            height: 3px; /* Altura da borda */
+            background: linear-gradient(90deg, transparent, #ffffff); /* Gradiente da borda */
+            animation: animate1 1s linear infinite; /* Aplica animação contínua */
         }
 
+        /* Define a animação para o primeiro span */
         @keyframes animate1 {
             0% {
-                left: -100%;
+                left: -100%; /* Começa fora da tela à esquerda */
             }
-
-            50%,
-            100% {
-                left: 100%;
+            50%, 100% {
+                left: 100%; /* Move para fora da tela à direita */
             }
         }
 
+        /* Estilo para o segundo span que cria uma animação na borda direita */
         a span:nth-child(2) {
-            top: -100%;
-            right: 0;
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg,transparent, #ffffff);
-            animation: animate2 1s linear infinite;
-            animation-delay: 0.25s;
+            top: -100%; /* Começa fora da tela na parte superior */
+            right: 0; /* Posiciona à direita */
+            width: 3px; /* Largura da borda */
+            height: 100%; /* Altura total do link */
+            background: linear-gradient(180deg, transparent, #ffffff); /* Gradiente da borda */
+            animation: animate2 1s linear infinite; /* Aplica animação contínua */
+            animation-delay: 0.25s; /* Atraso na animação para criar efeito sequencial */
         }
 
+        /* Define a animação para o segundo span */
         @keyframes animate2 {
             0% {
-                top: -100%;
+                top: -100%; /* Começa fora da tela na parte superior */
             }
-
-            50%,
-            100% {
-                top: 100%;
+            50%, 100% {
+                top: 100%; /* Move para fora da tela na parte inferior */
             }
         }
 
+        /* Estilo para o terceiro span que cria uma animação na borda inferior */
         a span:nth-child(3) {
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(270deg, transparent, #ffffff);
-            animation: animate3 1s linear infinite;
-            animation-delay: 0.50s;
+            bottom: 0; /* Posiciona na parte inferior */
+            right: 0; /* Posiciona à direita */
+            width: 100%; /* Largura total do link */
+            height: 3px; /* Altura da borda */
+            background: linear-gradient(270deg, transparent, #ffffff); /* Gradiente da borda */
+            animation: animate3 1s linear infinite; /* Aplica animação contínua */
+            animation-delay: 0.50s; /* Atraso na animação para criar efeito sequencial */
         }
 
+        /* Define a animação para o terceiro span */
         @keyframes animate3 {
             0% {
-                right: -100%;
+                right: -100%; /* Começa fora da tela à direita */
             }
-
-            50%,
-            100% {
-                right: 100%;
+            50%, 100% {
+                right: 100%; /* Move para fora da tela à esquerda */
             }
         }
 
-
+        /* Estilo para o quarto span que cria uma animação na borda esquerda */
         a span:nth-child(4) {
-            bottom: -100%;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(360deg, transparent, #ffffff);
-            animation: animate4 1s linear infinite;
-            animation-delay: 0.75s;
+            bottom: -100%; /* Começa fora da tela na parte inferior */
+            left: 0; /* Posiciona à esquerda */
+            width: 3px; /* Largura da borda */
+            height: 100%; /* Altura total do link */
+            background: linear-gradient(360deg, transparent, #ffffff); /* Gradiente da borda */
+            animation: animate4 1s linear infinite; /* Aplica animação contínua */
+            animation-delay: 0.75s; /* Atraso na animação para criar efeito sequencial */
         }
 
+        /* Define a animação para o quarto span */
         @keyframes animate4 {
             0% {
-                bottom: -100%;
+                bottom: -100%; /* Começa fora da tela na parte inferior */
             }
-
-            50%,
-            100% {
-                bottom: 100%;
+            50%, 100% {
+                bottom: 100%; /* Move para fora da tela na parte superior */
             }
         }
     </style>
@@ -154,104 +184,120 @@
             
 <section class="container principal"> 
         <div class="container__caixa">
-
-                <h1 class="container__titulo">Com o Combo+, você pode aproveitar a Alura+ e o Alura Língua por um preço único.</h1>
-                <img src="img/Combo.png" alt="O combo+ é a junção do alura+ e o alura lingua " class="container__imagem">
-                <strong>
-                <a href="https://www.alura.com.br" class="container__botao"><span></span><span></span><span></span><span></span>Assine por 12x de R$ 120,00*</a>
-                <a href="https://www.alura.com.br" class="container__botao  botao_secundario"><span></span><span></span><span></span><span></span>Assinar somente o Alura+</a></strong>
-                
-                <p class="container__aviso">*O preço pode variar caso a assinatura seja feita em outros planos.</p>
+            <!-- Título da seção principal -->
+            <h1 class="container__titulo">Com o Combo+, você pode aproveitar a Alura+ e o Alura Língua por um preço único.</h1>
+            <!-- Imagem do Combo+ -->
+            <img src="img/Combo.png" alt="O combo+ é a junção do alura+ e o alura lingua" class="container__imagem">
+            <strong>
+                <!-- Botão para assinar o Combo+ -->
+                <a href="https://www.alura.com.br" class="container__botao">
+                    <span></span><span></span><span></span><span></span>Assine por 12x de R$ 120,00*
+                </a>
+                <!-- Botão para assinar somente o Alura+ -->
+                <a href="https://www.alura.com.br" class="container__botao botao_secundario">
+                    <span></span><span></span><span></span><span></span>Assinar somente o Alura+
+                </a>
+            </strong>
+            <!-- Aviso sobre variação de preço -->
+            <p class="container__aviso">*O preço pode variar caso a assinatura seja feita em outros planos.</p>
         </div>
 </section>
-<section class="container  secundario">
+
+<section class="container secundario">
+        <!-- Imagem de plataformas -->
         <img src="img/Plataformas.png" alt="um monitor e um celular com alura plus aberto" class="secundario__imagem">
         <div class="container__descricao">
-              <h2 class="descricao__titulo">Assita do seu jeito</h2>
-              <p class="descricao__texto">Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros aparelhos. Nossa seleção de cursos não para de crescer.</p>
+            <!-- Título da descrição -->
+            <h2 class="descricao__titulo">Assista do seu jeito</h2>
+            <!-- Texto da descrição -->
+            <p class="descricao__texto">Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros aparelhos. Nossa seleção de cursos não para de crescer.</p>
         </div>
-
 </section>
 
-<section class="container  secundario">
-
+<section class="container secundario">
+        <!-- Imagem da tela da Alura Plus e Alura Língua -->
         <img src="img/Telas.png" alt="Tela da Alura Plus e do Alura Língua" class="container__imagem">
-
         <div class="container__descricao">
-
-        <p class="descricao__texto">Só o Combo+ oferece Alura+ e Alura Língua juntos para você ter acesso a cursos de diversas áreas da tecnologia
-         e aprender inglês ou espanhol, onde e como quiser.</p>
-        <strong>
-         <a href="https://www.alura.com.br" class="container__botao  secundario__botao"><span></span><span></span><span></span><span></span>Assine o Combo+</a></strong>
-
+            <!-- Texto descritivo sobre o Combo+ -->
+            <p class="descricao__texto">Só o Combo+ oferece Alura+ e Alura Língua juntos para você ter acesso a cursos de diversas áreas da tecnologia e aprender inglês ou espanhol, onde e como quiser.</p>
+            <strong>
+                <!-- Botão para assinar o Combo+ -->
+                <a href="https://www.alura.com.br" class="container__botao secundario__botao">
+                    <span></span><span></span><span></span><span></span>Assine o Combo+
+                </a>
+            </strong>
         </div>
-
-        
 </section>
 
-<section class="container  secundario">
-        <img src="img/Notebook.png" alt="Notebook" class="secundario__imagem">
-        <div class="container__descricao">
-              <h2 class="descricao__titulo">Baixe seus cursos</h2>
-              <p class="descricao__texto"> Baixe e assista quando e onde quiser. Assim, seus favoritos estão sempre com você, até mesmo sem internet.<p>
-        </div>
-
+<section class="container secundario">
+    <!-- Imagem de um notebook -->
+    <img src="img/Notebook.png" alt="Notebook" class="secundario__imagem">
+    <div class="container__descricao">
+        <!-- Título da seção -->
+        <h2 class="descricao__titulo">Baixe seus cursos</h2>
+        <!-- Texto descritivo sobre a funcionalidade de download -->
+        <p class="descricao__texto">Baixe e assista quando e onde quiser. Assim, seus favoritos estão sempre com você, até mesmo sem internet.</p>
+    </div>
 </section>
 
 <section class="dispositivos">
-        <h2 class="dispositivos__titulo">Disponível nos seus dispositivos favoritos</h2>
-        <ul class="dispositivos__lista">
-                <li>
-                        <img src="img/tv.png" alt="icone televisão" class="imagem__dispositivos">
-                        <h3 class="lista__item"> Tv</h3>
-                </li>
-                <li>
-                        <img src="img/computador.png" alt="icone computador" class="imagem__dispositivos">
-                        <h3 class="lista__item"> Computador</h3>
-                </li>
-                <li>
-                        <img src="img/celular.png" alt="icone celular" class="imagem__dispositivos">
-                        <h3 class="lista__item"> Celulares e tablets</h3>
-                </li>
-
-        </ul>
+    <!-- Título da seção de dispositivos compatíveis -->
+    <h2 class="dispositivos__titulo">Disponível nos seus dispositivos favoritos</h2>
+    <ul class="dispositivos__lista"> <!-- Lista de dispositivos -->
+        <li>
+            <!-- Imagem do ícone de televisão -->
+            <img src="img/tv.png" alt="icone televisão" class="imagem__dispositivos">
+            <h3 class="lista__item">Tv</h3> <!-- Título para televisão -->
+        </li>
+        <li>
+            <!-- Imagem do ícone de computador -->
+            <img src="img/computador.png" alt="icone computador" class="imagem__dispositivos">
+            <h3 class="lista__item">Computador</h3> <!-- Título para computador -->
+        </li>
+        <li>
+            <!-- Imagem do ícone de celular -->
+            <img src="img/celular.png" alt="icone celular" class="imagem__dispositivos">
+            <h3 class="lista__item">Celulares e tablets</h3> <!-- Título para celulares e tablets -->
+        </li>
+    </ul>
 </section>
 
 <footer class="rodape">
-        <img src="img/Logo.png" alt="logo do alura" class="rodape__logo">
-        <ul class="rodape__lista">
-                <li class="lista__link">
-                        <a href="#">Idioma</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Dispositivos compatíveis</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Contrato de assinatura</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Politica de privacidade</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Proteção de dados no Brasil</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Anuncios personalizados</a>
-                </li>
-                <li class="lista__link">
-                        <a href="#">Ajuda</a>
-                </li>
-        </ul>
-        <p class="rodape__texto">
-                ® 2021 Alura, Alura+ e Alura Língua. Todos os direitos reservados. Serviço de assinatura paga. Conteúdo sujeito a disponibilidade.
-        </p>
-
-        <p class="rodape__texto">
-                Alura+ é um serviço pago, baseado em assinatura e sujeito a termos e condições. O serviço Alura+ é comercializado por Aovs Sistemas de Informática S.A., 
-                Rua Vergueiro, 3185 - 
-                Liberdade, São Paulo - SP, 04101-300, Brasil e CNPJ 05.555.382/0001-33</p>
-                        
-
+    <!-- Imagem do logo da Alura -->
+    <img src="img/Logo.png" alt="logo do alura" class="rodape__logo">
+    <ul class="rodape__lista"> <!-- Lista de links do rodapé -->
+        <li class="lista__link">
+            <a href="#">Idioma</a> <!-- Link para idioma -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Dispositivos compatíveis</a> <!-- Link para dispositivos compatíveis -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Contrato de assinatura</a> <!-- Link para contrato de assinatura -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Politica de privacidade</a> <!-- Link para política de privacidade -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Proteção de dados no Brasil</a> <!-- Link para proteção de dados -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Anuncios personalizados</a> <!-- Link para anúncios personalizados -->
+        </li>
+        <li class="lista__link">
+            <a href="#">Ajuda</a> <!-- Link para ajuda -->
+        </li>
+    </ul>
+    <!-- Texto de direitos autorais -->
+    <p class="rodape__texto">
+        ® 2021 Alura, Alura+ e Alura Língua. Todos os direitos reservados. Serviço de assinatura paga. Conteúdo sujeito a disponibilidade.
+    </p>
+    <!-- Informações sobre o serviço Alura+ -->
+    <p class="rodape__texto">
+        Alura+ é um serviço pago, baseado em assinatura e sujeito a termos e condições. O serviço Alura+ é comercializado por Aovs Sistemas de Informática S.A., 
+        Rua Vergueiro, 3185 - 
+        Liberdade, São Paulo - SP, 04101-300, Brasil e CNPJ 05.555.382/0001-33
+    </p>
 </footer>
 
 </body>
