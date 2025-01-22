@@ -204,9 +204,9 @@ body {
 
     .container__titulo {
         /* Adiciona espaçamento ao título do container e alinha o texto à esquerda */
-        padding: 5% 40% 0% 0%;
+        padding: 5% 60% 0% 0%;
         text-align: left;
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .principal {
@@ -243,8 +243,38 @@ body {
         display: block;
     }
 
-    .rodape__lista {
-        /* Altera o layout da lista do rodapé para bloco em telas menores */
+    .container__botao {
         display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 22px
     }
+
+    .container__aviso {
+        margin-top: 2em; 
+        margin-bottom: 2em;
+        font-size: 17px; /* Tamanho da fonte do aviso */
+    }
+
+    .dispositivos__titulo, .descricao__titulo {
+        font-size: 40px;
+    }
+
+    .lista__item {
+        font-size: 32px;
+    }
+
+    .rodape__lista {
+        flex-direction: column; /* Itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+    }
+
+    .lista__link {
+        width: 100%; /* Cada item ocupa toda a largura disponível */
+    }
+
+    .lista__link a {
+        font-size: 16px; /* Tamanho maior para links no mobile */
+    }
+    
 }
