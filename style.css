@@ -274,7 +274,13 @@ body {
     }
 
     .lista__link a {
-        font-size: 16px; /* Tamanho maior para links no mobile */
+        font-size: 15px; /* Tamanho maior para links no mobile */
+    }
+
+    a {
+        width: 100%; /* Links ocupam toda a largura disponível */
+        padding: 15px; /* Ajuste do padding para telas menores */
+        margin: 20px 0; /* Espaçamento vertical adequado */
     }
     
 }
