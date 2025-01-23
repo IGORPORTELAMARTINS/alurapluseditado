@@ -37,6 +37,11 @@ body {
     height: 100vh; /* Define a altura da visualização do container */
     display: grid; /* Usa grid layout para organizar elementos */
     grid-template-columns: 50% 50%; /* Cria duas colunas de igual largura */
+    text-align: center;
+}
+
+.container > a {
+    align-self: center; /* Alinha os links no centro da coluna */
 }
 
 .container__botao {
@@ -165,8 +170,9 @@ body {
 
 .rodape__lista {
     /* Estiliza a lista do rodapé com layout em linha, centralização e espaçamento entre itens */
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-row: 1;
     list-style-type: none;
     gap: 16px;
 }
@@ -175,14 +181,10 @@ body {
     /* Remove o sublinhado dos links e aplica a cor branca principal */
     text-decoration: none;
     color: var(--branco-principal);
+
+    
 }
 
-.rodape__texto {
-    /* Define o tamanho da fonte, a cor cinza e o espaçamento interno para o texto do rodapé */
-    font-size: 14px;
-    color: var(--cinza-secundario);
-    padding: 1.5em 1.5em;
-}
 
 .lista__link a:hover {
     /* Estiliza o hover dos links com uma cor mais clara, tamanho da fonte ajustado e sem sombra */
@@ -191,6 +193,13 @@ body {
     background: none;
     box-shadow: none;
     -webkit-box-reflect: unset;
+}
+
+.rodape__texto {
+    /* Define o tamanho da fonte, a cor cinza e o espaçamento interno para o texto do rodapé */
+    font-size: 14px;
+    color: var(--cinza-secundario);
+    padding: 1.5em 1.5em;
 }
 
 @media (max-width: 768px) {
@@ -265,8 +274,7 @@ body {
     }
 
     .rodape__lista {
-        flex-direction: column; /* Itens em coluna */
-        align-items: center; /* Centraliza os itens horizontalmente */
+        display: block;    
     }
 
     .lista__link {
@@ -278,7 +286,7 @@ body {
     }
 
     a {
-        width: 100%; /* Links ocupam toda a largura disponível */
+   
         padding: 15px; /* Ajuste do padding para telas menores */
         margin: 20px 0; /* Espaçamento vertical adequado */
     }
